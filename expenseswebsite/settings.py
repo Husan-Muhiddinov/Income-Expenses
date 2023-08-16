@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from django.contrib import messages
 from pathlib import Path
+import django_heroku
 import os
 import environ
 # Initialise environment variables
@@ -31,7 +32,7 @@ SECRET_KEY = 'django-insecure-02*=z)@2dy_=jou(e%2^3yz0j++*!474=z$$s=8-4=!3f8m3o7
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -136,7 +137,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-
+django_heroku.settings(locals())
 
 MESSAGE_TAGS = {
     messages.ERROR: 'danger'
